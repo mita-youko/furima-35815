@@ -2,11 +2,11 @@
 
 ## users テーブル
 
-| Colum          | Type       | Options      |
-| ------------   | ---------- | ------------ |
-| nickname       | string     | null: false  |
-| email          | string     | null: false  |
-| password       | string     | null: false  |
+| Colum              | Type       | Options      |
+| ----------------   | ---------- | ------------ |
+| nickname           | string     | null: false  |
+| email              | string     | null: false  |
+| encrypted_password | string     | null: false  |
 
 ### Association
 - has_many :items
