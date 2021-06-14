@@ -16,7 +16,6 @@
 ### Association
 - has_many :items
 - has_many :records
-- has_one :profile
 
 ## items テーブル
 
@@ -24,7 +23,7 @@
 | ----------   | ----------  | ------------------------------- |
 | name         | string      | null: false                     |
 | description  | text        | null: false                     |
-| category_id  | string      | null: false                     |
+| category_id  | integer     | null: false                     |
 | condition_id | integer     | null: false                     |
 | sip_cost_id  | integer     | null: false                     |
 | prefecture_id| integer     | null: false                     |
@@ -42,7 +41,6 @@
 | ---------- | ----------  | ------------------------------- |
 | user       | references  | null: false, foreign_key: true  |
 | item       | references  | null: false, foreign_key: true  |
-| address    | references  | null: false                     |
 
 ### Association
 - belongs_to :user
@@ -53,13 +51,13 @@
 
 |  Colum           | Type        | Options                         |
 | ---------------- | ----------  | ------------------------------- |
-| postal_code      | integer     | null: false                     |
+| postal_code      | string      | null: false                     |
 | prefecture_id    | integer     | null: false                     |
 | city             | string      | null: false                     |
 | house_number     | string      | null: false                     |
 | building_name    | string      |                                 |
-| phone_number     | integer     | null: false                     |
-| user             | references  | null: false, foreign_key: true  |
+| phone_number     | string      | null: false                     |
+| record           | references  | null: false, foreign_key: true  |
 
 ### Association
 - belongs_to :record
