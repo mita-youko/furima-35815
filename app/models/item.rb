@@ -10,11 +10,16 @@ class Item < ApplicationRecord
   belongs_to :ship_date
 
   with_options presence: true do
-    validates :category_id
-    validates :condition_id
-    validates :ship_cost_id
-    validates :prefecture
-    validates :ship_date_id
+    validates :name
+    validates :description
+    validates :price
+    with_options numericality: { other_than: 1 } do
+     validates :category_id
+     validates :condition_id
+     validates :ship_date_id
+     validates :ship_cost_id
+     validates :prefecture_id
+    end
   end
 
 end
