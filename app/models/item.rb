@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     validates :description
     validates :price, inclusion: { in: 300..9999999, message: 'is out of setting range' }
     validates :image
-    with_options numericality: { other_than: 1 } do
+    with_options numericality: { other_than: 1, message: "can't be blank" } do
       validates :category_id
       validates :condition_id
       validates :ship_date_id
