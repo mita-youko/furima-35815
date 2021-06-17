@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :description
-    validates :price
+    validates :price, inclusion: { in: 300..9999999, message: 'is out of setting range' }
     validates :image
     with_options numericality: { other_than: 1 } do
       validates :category_id
@@ -22,4 +22,5 @@ class Item < ApplicationRecord
       validates :prefecture_id
     end
   end
+  validates :price, numericality: true
 end
