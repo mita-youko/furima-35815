@@ -27,31 +27,63 @@ RSpec.describe Item, type: :model do
                 @item.valid?
                 expect(@item.errors.full_messages).to include("Description can't be blank")
             end
+
+            # ActiveHashに関するテストコード
             it 'category_idが空だと出品できない' do
                 @item.category_id = ''
                 @item.valid?
                 expect(@item.errors.full_messages).to include("Category can't be blank")
             end
+            it 'category_idが１だと出品できない' do
+                @item.category_id = 1
+                @item.valid?
+                expect(@item.errors.full_messages).to include("Category can't be blank")
+            end
+
             it 'condition_idが空だと出品できない' do
                 @item.condition_id = ''
                 @item.valid?
                 expect(@item.errors.full_messages).to include("Condition can't be blank")
             end
+            it 'condition_idが１だと出品できない' do
+                @item.condition_id = 1
+                @item.valid?
+                expect(@item.errors.full_messages).to include("Condition can't be blank")
+            end
+
             it 'ship_cost_idが空だと出品できない' do
                 @item.ship_cost_id = ''
                 @item.valid?
                 expect(@item.errors.full_messages).to include("Ship cost can't be blank")
             end
+            it 'ship_cost_idが1だと出品できない' do
+                @item.ship_cost_id = 1
+                @item.valid?
+                expect(@item.errors.full_messages).to include("Ship cost can't be blank")
+            end
+
             it 'prefecture_idが空だと出品できない' do
                 @item.prefecture_id = ''
                 @item.valid?
                 expect(@item.errors.full_messages).to include("Prefecture can't be blank")
             end
+            it 'prefecture_idが1だと出品できない' do
+                @item.prefecture_id = 1
+                @item.valid?
+                expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+            end
+
             it 'ship_dateが空だと出品できない' do
                 @item.ship_date_id = ''
                 @item.valid?
                 expect(@item.errors.full_messages).to include("Ship date can't be blank")
             end
+            it 'ship_dateが1だと出品できない' do
+                @item.ship_date_id = 1
+                @item.valid?
+                expect(@item.errors.full_messages).to include("Ship date can't be blank")
+            end
+
             it 'priceが空だと出品できない' do
                 @item.price = ''
                 @item.valid?
