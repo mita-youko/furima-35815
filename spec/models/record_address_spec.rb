@@ -9,10 +9,10 @@ RSpec.describe RecordAddress, type: :model do
     end
     describe '購入情報の保存' do
     context '内容に問題ない場合' do
-        it 'postal_code, prefecture_id, city, house_number, building_name, phone_numberがあれば購入できる' do
+        it 'token, postal_code, prefecture_id, city, house_number, building_name, phone_numberがあれば保存できる' do
             expect(@record_address).to be_valid
         end
-        it 'building_nameが空でも登録できる' do
+        it 'building_nameが空でも保存できる' do
             @record_address.building_name = ''
             expect(@record_address).to be_valid
         end
@@ -20,7 +20,12 @@ RSpec.describe RecordAddress, type: :model do
     
 
     context '購入情報の保存がうまくいかないとき' do
-        it 'postal_codeが空だとできない' do
+        it 'tokenが空だと保存できない' do
+            @record_address.token = ''
+            @record_address.valid?
+            expect(@record_address.errors.full_messages).to include("Token can't be blank")
+        end
+        it 'postal_codeが空だと保存できない' do
             @record_address.postal_code = ''
             @record_address.valid?
             expect(@record_address.errors.full_messages).to include("Postal code can't be blank")
