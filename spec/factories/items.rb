@@ -10,9 +10,8 @@ FactoryBot.define do
     price             { 300 }
     association :user
 
-   after(:build) do |item| 
-     item.image.attach(io: File.open('spec/fixtures/sample.png'), filename: 'sample.png', content_type: 'image/png')
-   end
-
+    after(:build) do |item|
+      item.image.attach(io: File.open('spec/fixtures/sample.png'), filename: 'sample.png', content_type: 'image/png')
+    end
   end
 end
