@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
   def index
     @record_address = RecordAddress.new
     @item = Item.find(params[:item_id])
-    redirect_to root_path if current_user.id == @item.user_id || @item.id == @record_address.item_id
+    redirect_to root_path if current_user.id == @item.user_id
   end
 
   def create
