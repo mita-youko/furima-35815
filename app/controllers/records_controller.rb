@@ -30,7 +30,7 @@ class RecordsController < ApplicationController
 
     def pay_item
         @item = Item.find(params[:item_id])
-        Payjp.api_key = "sk_test_575281d78f9cb08d9625c060"  # PAY.JPテスト秘密鍵
+        Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # PAY.JPテスト秘密鍵
         Payjp::Charge.create(
             amount: @item.price,
             card: record_params[:token],
