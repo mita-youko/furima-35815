@@ -66,6 +66,11 @@ RSpec.describe RecordAddress, type: :model do
         @record_address.valid?
         expect(@record_address.errors.full_messages).to include("Phone number can't be blank")
       end
+      it 'phone_numberは英数混合だと保存できない' do
+        @record_address.phone_number = 'aaaaaaaaa11'
+        @record_address.valid?
+        expect(@record_address.errors.full_messages).to include("Phone number is invalid")
+      end
       it 'phone_numberが9桁以下だと保存できない' do
         @record_address.phone_number = '12345678'
         @record_address.valid?
