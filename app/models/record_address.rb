@@ -1,6 +1,6 @@
 class RecordAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :record_id, :user_id,
+  attr_accessor :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :user_id,
                 :item_id, :token
 
   with_options presence: true do
