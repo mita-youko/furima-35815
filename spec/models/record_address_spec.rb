@@ -9,7 +9,7 @@ RSpec.describe RecordAddress, type: :model do
   end
   describe '購入情報の保存' do
     context '内容に問題ない場合' do
-      it 'token, postal_code, prefecture_id, city, house_number, building_name, phone_numberがあれば保存できる' do
+      it 'token, postal_code, prefecture_id, city, house_number, building_name, phone_number,user_id,item_idがあれば保存できる' do
         expect(@record_address).to be_valid
       end
       it 'building_nameが空でも保存できる' do
